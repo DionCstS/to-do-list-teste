@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, Paper, TextField } from '@mui/material'
 
 export default function Form() {
   return (
-    <div>
+    <Paper>
         <TextField id="outlined-basic" label="Outlined" variant="outlined" />
         <Button variant="text">Text</Button>
-    </div>
+    </Paper>
   )
 }
