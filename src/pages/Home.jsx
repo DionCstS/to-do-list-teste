@@ -17,8 +17,8 @@ export default function Home() {
     <Container maxWidth="xs" style={{marginTop: "1em"}}>
       <Form todoHandler={todoHandler}/>
       <List sx={{ bgcolor: "background.paper", marginTop: "1em" }}>
-        {todos.map((todo, key) => (
-          <div key={key}>
+        {todos.map((todo) => (
+          <div key={todo.id}>
             <TodoItem todo={todo}/>
           </div>     
         ))}
