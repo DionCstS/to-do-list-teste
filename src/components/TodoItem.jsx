@@ -8,11 +8,21 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditTodoDialog from './EditTodoDialog';
 
 export default function TodoItem({ todo, deleteTodo }) {
+  const [openDialog, setOpenDialog] = React.useState(false)
+
+  const dialogHandler = () => {
+    setOpenDialog(!openDialog)
+  }
+
+
 
   return (
-    <ListItem
+    <>
+      <EditTodoDialog open={openDialog} dialogHandler={dialogHandler}/>
+        <ListItem
             secondaryAction={
               <IconButton edge="end" aria-label="delete" onClick={() => deleteTodo(todo.id)}>
                 <DeleteIcon />
@@ -28,8 +38,9 @@ export default function TodoItem({ todo, deleteTodo }) {
                   disableRipple
                 />
               </ListItemIcon>
-              <ListItemText primary={todo.text}/>
+              <ListItemText primary={todo.text} onClick={() => setOpenDialog(true)}/>
             </ListItemButton>
-     </ListItem>
+        </ListItem>
+    </>
   );
 }
