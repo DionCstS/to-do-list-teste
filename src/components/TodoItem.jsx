@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function TodoItem() {
+export default function TodoItem({todo}) {
 
   return (
     <ListItem
@@ -28,7 +28,7 @@ export default function TodoItem() {
                   disableRipple
                 />
               </ListItemIcon>
-              <ListItemText primary={`Line item`}/>
+              <ListItemText primary={todo.text}/>
             </ListItemButton>
      </ListItem>
   );
