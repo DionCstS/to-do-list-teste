@@ -28,7 +28,7 @@ export default function EditTodoDialog({open, dialogHandler}) {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        //onClose={handleClose}
+        onClose={dialogHandler}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>{"Use Google's location service?"}</DialogTitle>
@@ -39,8 +39,8 @@ export default function EditTodoDialog({open, dialogHandler}) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button >Disagree</Button>
-          <Button >Agree</Button>
+          <Button onClick={dialogHandler}>Cancelar</Button>
+          <Button >Ok</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
