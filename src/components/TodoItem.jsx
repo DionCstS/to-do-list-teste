@@ -21,7 +21,7 @@ export default function TodoItem({ todo, deleteTodo }) {
 
   return (
     <>
-      <EditTodoDialog open={openDialog} dialogHandler={dialogHandler}/>
+      <EditTodoDialog open={openDialog} dialogHandler={dialogHandler} todo={todo}/>
         <ListItem
             secondaryAction={
               <IconButton edge="end" aria-label="delete" onClick={() => deleteTodo(todo.id)}>
