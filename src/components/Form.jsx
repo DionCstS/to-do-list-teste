@@ -9,6 +9,8 @@ export default function Form({ addTodo }) {
     const todoObj = {text: text, id: id };
     setId(id + 1);
     addTodo(todoObj);
+    document.getElementById("outlined-basic").value = null;
+
   }
 
   return (
