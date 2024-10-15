@@ -16,10 +16,13 @@ export default function Home() {
   };
 
   const editTodo = (id, editedText) => {
-    //console.log(id);
-    //console.log(editedText);
-    //console.log(todos);
     var todosArray = [...todos];
+
+    for (var i in todosArray) {
+      if (todosArray[i].id == id) {
+        todosArray[i].text = editedText;
+      }
+    }
 
     todosArray.splice(id, 1, { text: editedText, id: id });
     setTodos(todosArray);

@@ -18,6 +18,7 @@ export default function EditTodoDialog({open, dialogHandler, todo, editTodo}) {
 
   const textHandler = () => {
     editTodo(todo.id, editedText)
+    dialogHandler();
   }
 
   return (
@@ -35,7 +36,7 @@ export default function EditTodoDialog({open, dialogHandler, todo, editTodo}) {
           <TextField defaultValue={editedText} fullWidth onChange={ (e)=>setEditedText(e.target.value)}/>
         </DialogContent>
         <DialogActions>
-          <Button >Cancelar</Button>
+          <Button onClick={dialogHandler} >Cancelar</Button>
           <Button onClick={textHandler}>Ok</Button>
         </DialogActions>
       </Dialog>
