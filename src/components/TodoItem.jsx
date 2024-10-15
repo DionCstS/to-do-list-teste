@@ -10,7 +10,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditTodoDialog from './EditTodoDialog';
 
-export default function TodoItem({ todo, deleteTodo }) {
+export default function TodoItem({ todo, deleteTodo, editTodo }) {
   const [openDialog, setOpenDialog] = React.useState(false)
 
   const dialogHandler = () => {
@@ -21,7 +21,7 @@ export default function TodoItem({ todo, deleteTodo }) {
 
   return (
     <>
-      <EditTodoDialog open={openDialog} dialogHandler={dialogHandler} todo={todo}/>
+      <EditTodoDialog editTodo={editTodo} open={openDialog} dialogHandler={dialogHandler} todo={todo}/>
         <ListItem
             secondaryAction={
               <IconButton edge="end" aria-label="delete" onClick={() => deleteTodo(todo.id)}>

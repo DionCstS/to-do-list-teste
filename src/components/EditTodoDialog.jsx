@@ -12,7 +12,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function EditTodoDialog({open, dialogHandler, todo}) {
+export default function EditTodoDialog({open, dialogHandler, todo, editTodo}) {
+  const [editedText, setEditedText] = React.useState(todo.text);
+
+
+  const textHandler = () => {
+    editTodo(todo.id, editedText)
+  }
 
   return (
     <React.Fragment>
@@ -26,11 +32,11 @@ export default function EditTodoDialog({open, dialogHandler, todo}) {
       >
         <DialogTitle>{"Editando tarefa"}</DialogTitle>
         <DialogContent>
-          <TextField defaultValue={todo.text} fullWidth/>
+          <TextField defaultValue={editedText} fullWidth onChange={ (e)=>setEditedText(e.target.value)}/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={dialogHandler}>Cancelar</Button>
-          <Button >Ok</Button>
+          <Button >Cancelar</Button>
+          <Button onClick={textHandler}>Ok</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
